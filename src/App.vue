@@ -1,28 +1,52 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2 class="title">{{ title }}</h2>
+
+    <div style="max-width:100%">
+      <gallery v-bind:pictures='pictures' > </gallery>
+    </div>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  import gallery from './components/shared/gallery/gallery.vue';
+
+  export default {
+    data(){
+      return {
+        title: 'PlanetPic',
+        pictures: []
+      }
+    },
+    components:{'gallery':gallery},
+    created(){
+      let picturesPromise = this.$http.get('http://localhost:3000/v1/fotos');
+      picturesPromise.then(response => this.pictures = response.data);
+      
+    }
   }
-}
 </script>
 
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+.title{
+  width:100;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
+
+html,
+body,
+#app {
+  padding:0;
+  margin:0;
+  border: 0;
+  background: #190e27;
+  font-family: Rubik, Roboto,sans-serif;
+  color: #fefefe;
+  box-sizing: border-box;
+}
+
 </style>
