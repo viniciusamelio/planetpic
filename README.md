@@ -1,4 +1,18 @@
-# planetpic
+# PlanetPic
+
+- Image uploading project developed with VueJS.
+
+## API Setup
+```
+cd api
+npm init
+```
+
+## API Init
+```
+cd api 
+npm start
+```
 
 ## Project setup
 ```
@@ -20,5 +34,3 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
