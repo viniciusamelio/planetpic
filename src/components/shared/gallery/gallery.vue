@@ -15,7 +15,7 @@
   }
 </script>
 
-<style >
+<style scoped>
 ul {
   padding: 10px;
   margin: 0;
